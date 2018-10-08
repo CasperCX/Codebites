@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native';
 
-export default class Menu extends Component {
+
+export default class Collections extends Component {
   render() {
     return (
-        <View>
-            <Text>Menu</Text>
-        </View>
+      <View>
+        <Text>Collections</Text>
+      </View>
     )
   }
 }

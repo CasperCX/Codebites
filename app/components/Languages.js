@@ -3,6 +3,8 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { ScrollView, Text, View, FlatList, Button } from 'react-native';
 
+import TopicTitle from './TopicTitle';
+
 export default class Languages extends Component {
   state = {
     data: []
@@ -10,8 +12,8 @@ export default class Languages extends Component {
 
   async componentWillMount() {
     try {
-      //Generate new ngrok link on every restart using: ngrok http 5000
-      let res = await axios.get('http://fe030a79.ngrok.io/languages');
+      //Generate new ngrok link on every restart using: ngrok http 5000 + /languages
+      let res = await axios.get('http://9d96c7d1.ngrok.io/languages');
       this.setState({ data: res.data });
       } catch (error) {
         console.error(error);
@@ -19,11 +21,11 @@ export default class Languages extends Component {
   }
 
   renderItem({item}) {
-        return  (
-          <View>
-             <Text>{item.model}</Text>
-          </View>
-        )
+    return  (
+      <View>
+          <TopicTitle key={item.model} topic={item}>{item.model} - {item.doors}</TopicTitle>
+      </View>
+    )
   }
 
 
