@@ -18,6 +18,7 @@ export default class TopicTitle extends Component {
             'montserrat-regular': require('../assets/fonts/Montserrat-Regular.ttf'),
             'montserrat-light': require('../assets/fonts/Montserrat-Light.ttf'),
             'montserrat-medium': require('../assets/fonts/Montserrat-Medium.ttf'),
+            'montserrat-semibold': require('../assets/fonts/Montserrat-SemiBold.ttf')
           });
         }
         catch(e) {
@@ -31,7 +32,7 @@ export default class TopicTitle extends Component {
   
     render() {
         return (
-            <View>
+            <View style={styles.item}>
                { this.state.fontLoaded ? (
                     <TouchableOpacity onPress={() => Actions.topicview({ topic: this.props.topic }) }>
                         <Text style={styles.titleText}>{this.props.topic.title}</Text>
@@ -61,10 +62,14 @@ export default class TopicTitle extends Component {
 
 
     const styles = StyleSheet.create({
+        item: {
+            borderBottomColor: '#dedede',
+            borderBottomWidth: 1
+        },
         titleText: {
-            fontFamily: 'montserrat-medium',
-            fontSize: 30,
-            color: '#ff473a'
+            fontFamily: 'montserrat-semibold',
+            fontSize: 25,
+            color: '#ff5e52'
         },
         titleInfo: {
             fontFamily: 'montserrat-regular',
