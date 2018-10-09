@@ -36,7 +36,6 @@ export default class App extends React.Component {
               />
             </Scene>
             <Scene key="drawer"
-                initial
                 drawer
                 contentComponent={Menu}
                 drawerWidth={250}
