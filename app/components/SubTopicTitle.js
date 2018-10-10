@@ -44,6 +44,7 @@ export default class TopicTitle extends Component {
 };
 
 
+
  //   <TouchableOpacity key={item.type} style={styles.item} onPress={() => Actions.tutorialview({ topic: this.props.topic }) }>
   //       <Text style={styles.titleText}>{item.type}</Text>
   //       <Text style={styles.titleInfo}>{item.tutorialcount} Tutorials</Text>

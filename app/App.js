@@ -28,13 +28,13 @@ export default class App extends React.Component {
               <Scene
                 initial
                 key="topics"
-                title="topics"
+                title="Topics"
                 component={Languages} 
               />
               <Scene
                 key="topicview"
                 component={TopicView}
-                title="Topic"
+                title="Sub Topics"
               />
               <Scene
                 key="tutorialview"

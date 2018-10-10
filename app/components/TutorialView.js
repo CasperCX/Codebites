@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import { Font } from 'expo';
 import axios from 'axios';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 
 import SubTopicTitle from './SubTopicTitle';
 
 export default class TutorialView extends Component {
 state = {
+    fontLoaded: true,
     data: []
 }
 
   async componentDidMount() {
-    this.loadFonts();
+    // this.loadFonts();
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
       let res = await axios.get('http://8c854b92.ngrok.io/javascript/authentication'); //API endpoint for testing!
@@ -39,13 +40,17 @@ state = {
 }
 
 renderItem({item}) {
-  return  (
-    <View>
-        <Text key={item.tutid}>{item.title}</Text>
-    </View>
-    //<SubTopicTitle key={item.title}>{item.tutid}{item.title}</SubTopicTitle>
-  )
-}
+    return (
+        <View style={styles.item}>
+            {/* { this.state.fontLoaded ? ( */}
+                <TouchableOpacity>
+                    <Text style={styles.titleText}>{item.title}</Text>
+                    <Text style={styles.titleInfo}>{item.tutid}</Text>
+                </TouchableOpacity>
+            {/* ) : null } */}
+        </View>
+        )
+};
 
 render() {
   const { title } = this.props.topic;
@@ -60,4 +65,25 @@ render() {
     )
   }
 }
+
+
+const styles = StyleSheet.create({
+    item: {
+      flex: 1, 
+      backgroundColor: '#FFFFFF', 
+      borderBottomColor: '#dedede',
+      borderBottomWidth: 1
+    },
+    titleText: {
+        fontFamily: 'montserrat-semibold',
+        fontSize: 20,
+        color: '#000000'
+    },
+    titleInfo: {
+        fontFamily: 'montserrat-regular',
+        fontSize: 16,
+        color: '#9e9e9e'
+    }
+  });
+  
 

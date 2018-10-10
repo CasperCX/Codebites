@@ -48,7 +48,7 @@ render() {
   const { title } = this.props.topic;
   return (
     <View style={{marginHorizontal: 10}}>
-      <Text>Topic view for {title}</Text>
+      <Text>4350 Tutorials found for Javascript</Text>
       <FlatList
         data={this.state.tutorials}
         renderItem={this.renderItem}
