@@ -12,6 +12,8 @@ import Settings from './components/menu/Settings';
 
 import Languages from './components/Languages';
 import TopicView from './components/TopicView';
+import TutorialView from './components/TutorialView';
+
 
 
 const store = createStore(() => {}, {}, applyMiddleware(ReduxThunk));
@@ -33,6 +35,11 @@ export default class App extends React.Component {
                 key="topicview"
                 component={TopicView}
                 title="Topic"
+              />
+              <Scene
+                key="tutorialview"
+                component={TutorialView}
+                title="Tutorials"
               />
             </Scene>
             <Scene key="drawer"

@@ -47,7 +47,7 @@ server.get('/javascript', (req, res) => {
 });
 
 //Test for getting domain detail  data
-server.get('/javascript/:domain', (req, res) => {
+server.get('/javascript/authentication', (req, res) => {
     res.json({
             "topic":"Javascript",
             "tutorials": [

@@ -33,8 +33,8 @@ export default class TopicTitle extends Component {
         return (
             <View style={styles.item}>
                { this.state.fontLoaded ? (
-                    <TouchableOpacity onPress={() => Actions.topicview({ topic: this.props.topic }) }>
-                        <Text style={styles.titleText}>{this.props.topic.title}</Text>
+                      <TouchableOpacity onPress={() => Actions.tutorialview({ topic: this.props.topic }) }>
+                        <Text style={styles.titleText}>{this.props.topic.type}</Text>
                         <Text style={styles.titleInfo}>{this.props.topic.tutorialcount} tutorials</Text>
                     </TouchableOpacity>
                 ) : null }
@@ -44,20 +44,31 @@ export default class TopicTitle extends Component {
 };
 
 
-    const styles = StyleSheet.create({
-        item: {
-            borderBottomColor: '#dedede',
-            borderBottomWidth: 1
-        },
-        titleText: {
-            fontFamily: 'montserrat-regular',
-            fontSize: 27,
-            color: '#ff5e52'
-        },
-        titleInfo: {
-            fontFamily: 'montserrat-regular',
-            fontSize: 17,
-            color: '#9e9e9e'
-        }
-    });
+ //   <TouchableOpacity key={item.type} style={styles.item} onPress={() => Actions.tutorialview({ topic: this.props.topic }) }>
+  //       <Text style={styles.titleText}>{item.type}</Text>
+  //       <Text style={styles.titleInfo}>{item.tutorialcount} Tutorials</Text>
+  //   </TouchableOpacity> 
+  // )
+
+  const styles = StyleSheet.create({
+    item: {
+      flex: 1, 
+      backgroundColor: '#FFFFFF', 
+      borderBottomColor: '#dedede',
+      borderBottomWidth: 1
+    },
+    titleText: {
+        fontFamily: 'montserrat-semibold',
+        fontSize: 20,
+        color: '#000000'
+    },
+    titleInfo: {
+        fontFamily: 'montserrat-regular',
+        fontSize: 16,
+        color: '#9e9e9e'
+    }
+  });
   
+
+
+

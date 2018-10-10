@@ -2,7 +2,7 @@
   "name": "empty-project-template",
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "http://8c854b92.ngrok.io",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",

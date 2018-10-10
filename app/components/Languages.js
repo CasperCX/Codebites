@@ -6,14 +6,18 @@ import { ScrollView, Text, View, FlatList, StyleSheet } from 'react-native';
 import TopicTitle from './TopicTitle';
 
 export default class Languages extends Component {
+  menuOption = () => {
+    console.log(this.setMenuOption.value)
+  }
+  
   state = {
     data: []
   }
 
   async componentWillMount() {
     try {
-      //Generate new ngrok link on every restart using: ngrok http 5000 + /languages
-      let res = await axios.get('http://7e7513a7.ngrok.io/languages');
+      //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
+      let res = await axios.get('http://8c854b92.ngrok.io/languages');
       this.setState({ data: res.data });
       } catch (error) {
         console.error(error);
@@ -28,12 +32,19 @@ export default class Languages extends Component {
     )
   }
 
+  // menuOption() {
+  //   let term = this.menuValue;
+  //   console.log("term:", term)
+  // }
 
+  
   render() {
     return (
       <View style={{backgroundColor: '#FFFFFF'}}>
         <View elevation={5} style={styles.menu}>
-          <Text  elevation={5} style={styles.menuItems}>Languages</Text>
+          <View onPress={() => this.menuOption }>
+            <Text ref={component => this.setMenuOption = component} style={styles.menuItems}>Languages</Text>
+          </View>
           <Text style={styles.menuItems}>Topics</Text>
           <Text style={styles.menuItems}>Courses</Text>
           <Text style={styles.menuItems}>Trending</Text>

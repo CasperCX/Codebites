@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Font } from 'expo';
 import axios from 'axios';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 import SubTopicTitle from './SubTopicTitle';
 
-export default class TopicView extends Component {
-  state = {
-    tutorials: []
-  }
+export default class TutorialView extends Component {
+state = {
+    data: []
+}
 
   async componentDidMount() {
     this.loadFonts();
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
-      let res = await axios.get('http://8c854b92.ngrok.io/javascript'); //API endpoint for testing!
-      this.setState({ tutorials: res.data.domain });
+      let res = await axios.get('http://8c854b92.ngrok.io/javascript/authentication'); //API endpoint for testing!
+      this.setState({ data: res.data });
       } catch (error) {
         console.error(error);
     }
@@ -40,7 +40,10 @@ export default class TopicView extends Component {
 
 renderItem({item}) {
   return  (
-    <SubTopicTitle key={item.title} topic={item}>{item.title}subtopictitle</SubTopicTitle>
+    <View>
+        <Text key={item.tutid}>{item.title}</Text>
+    </View>
+    //<SubTopicTitle key={item.title}>{item.tutid}{item.title}</SubTopicTitle>
   )
 }
 
@@ -48,18 +51,13 @@ render() {
   const { title } = this.props.topic;
   return (
     <View style={{marginHorizontal: 10}}>
-      <Text>Topic view for {title}</Text>
+      <Text>Tutorials for {this.state.data.topic} {title}</Text>
       <FlatList
-        data={this.state.tutorials}
+        data={this.state.data.tutorials}
         renderItem={this.renderItem}
       />
     </View>
     )
   }
 }
-
-
-
-
-
 
