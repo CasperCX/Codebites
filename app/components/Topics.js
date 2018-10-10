@@ -5,7 +5,7 @@ import { ScrollView, Text, View, FlatList, StyleSheet } from 'react-native';
 
 import TopicTitle from './TopicTitle';
 
-export default class Languages extends Component {
+export default class Topics extends Component {
   menuOption = () => {
     console.log(this.setMenuOption.value)
   }

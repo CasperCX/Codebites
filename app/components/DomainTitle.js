@@ -3,7 +3,7 @@ import { Font } from 'expo';
 import { Actions } from 'react-native-router-flux';
 import { Text, View,  TouchableNativeFeedback, TouchableOpacity, StyleSheet } from 'react-native';
 
-export default class TopicTitle extends Component {
+export default class DomainTitle extends Component {
     state = {
         fontLoaded: false,
     }

@@ -10,8 +10,8 @@ import Collections from './components/menu/Collections';
 import Settings from './components/menu/Settings';
 
 
-import Languages from './components/Languages';
-import TopicView from './components/TopicView';
+import Topics from './components/Topics';
+import DomainView from './components/DomainView';
 import TutorialView from './components/TutorialView';
 
 
@@ -29,12 +29,12 @@ export default class App extends React.Component {
                 initial
                 key="topics"
                 title="Topics"
-                component={Languages} 
+                component={Topics} 
               />
               <Scene
-                key="topicview"
-                component={TopicView}
-                title="Sub Topics"
+                key="domainview"
+                component={DomainView}
+                title="Domains"
               />
               <Scene
                 key="tutorialview"

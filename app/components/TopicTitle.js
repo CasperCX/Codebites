@@ -33,7 +33,7 @@ export default class TopicTitle extends Component {
         return (
             <View style={styles.item}>
                { this.state.fontLoaded ? (
-                    <TouchableOpacity onPress={() => Actions.topicview({ topic: this.props.topic }) }>
+                    <TouchableOpacity onPress={() => Actions.domainview({ topic: this.props.topic }) }>
                         <Text style={styles.titleText}>{this.props.topic.title}</Text>
                         <Text style={styles.titleInfo}>{this.props.topic.tutorialcount} tutorials</Text>
                     </TouchableOpacity>

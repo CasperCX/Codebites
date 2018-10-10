@@ -3,9 +3,9 @@ import { Font } from 'expo';
 import axios from 'axios';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
-import SubTopicTitle from './SubTopicTitle';
+import DomainTitle from './DomainTitle';
 
-export default class TopicView extends Component {
+export default class DomainView extends Component {
   state = {
     tutorials: []
   }
@@ -40,7 +40,7 @@ export default class TopicView extends Component {
 
 renderItem({item}) {
   return  (
-    <SubTopicTitle key={item.title} topic={item}>{item.title}subtopictitle</SubTopicTitle>
+    <DomainTitle key={item.title} topic={item}>{item.title}subtopictitle</DomainTitle>
   )
 }
 

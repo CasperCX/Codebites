@@ -3,7 +3,6 @@ import { Font } from 'expo';
 import axios from 'axios';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 
-import SubTopicTitle from './SubTopicTitle';
 
 export default class TutorialView extends Component {
 state = {
