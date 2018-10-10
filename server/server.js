@@ -1,62 +1,64 @@
 const express = require("express");
+const bodyParser = require('body-parser');
+
+//Database
 const db = require('./sequelize-connection'); 
 const Item = require('./models/Item');
+const Topic = require('./models/Topic');
 
+//Server setup
 const server = express();
+    server.use(bodyParser.json({ limit: '100mb' }));
+    server.use(bodyParser.urlencoded({ extended: true, limit: '100mb', parameterLimit: 1000000 }));
 
-//Including dependency
-return Item.create({
-    name:'Laptop',
-    description: 'Acer 2340TL',
-    qty: 23
-}).then(function (item) {
-    if (item) {
-       console.log("created entry")
-    } else {
-        console.log("failed inserting record")
-        // response.status(400).send('Error in insert new record');
-    }
-});
-
-
-
+// return Item.create({
+//     name:'Laptop',
+//     description: 'Acer 2340TL',
+//     qty: 23
+// }).then(function (item) {
+//     if (item) {
+//        console.log("created entry")
+//     } else {
+//         console.log("failed inserting record")
+//         // response.status(400).send('Error in insert new record');
+//     }
+// });
 
 
 
-// server.use(cors())
 server.get('/languages' , (req, res) => {
-
-    let result = db.query('SELECT * FROM `EXAMPLE_AUTOINCREMENT`', function (error, results, fields) {
-        if(error) {
-            console.log(error)
+    return Topic.findAll().then((items) => {
+        if (items) {
+            res.status(200).send(items);
         } else {
-            console.log(results)
+            res.status(400).send(`Error finding topic: ${item}`);
         }
     });
+    
 
 
-    res.json( [
-                {"title":"Javascript", "tutorialcount":143},
-                {"title":"C#", "tutorialcount":412},
-                {"title":"Kotlin", "tutorialcount":543},
-                {"title":"Elixir", "tutorialcount":145},
-                {"title":"Java", "tutorialcount":212},
-                {"title":"Python", "tutorialcount":2644},
-                {"title":"HTML", "tutorialcount":4132},
-                {"title":"CSS", "tutorialcount":5435},
-                {"title":"PHP", "tutorialcount":654},
-                {"title":"Go", "tutorialcount":483},
-                {"title":"Perl", "tutorialcount":122},
-                {"title":"Swift", "tutorialcount":432},
-                {"title":"C", "tutorialcount":765},
-                {"title":"C++", "tutorialcount":1201},
-                {"title":"Ruby", "tutorialcount":1212},
-                {"title":"Scala", "tutorialcount":2212},
-                {"title":"Lua", "tutorialcount":222},
-                {"title":"Haskell", "tutorialcount":23},
-                {"title":"Dart", "tutorialcount":25}
-            ]
-        )
+    // res.json( [
+    //             {"title":"Javascript", "tutorialcount":143},
+    //             {"title":"C#", "tutorialcount":412},
+    //             {"title":"Kotlin", "tutorialcount":543},
+    //             {"title":"Elixir", "tutorialcount":145},
+    //             {"title":"Java", "tutorialcount":212},
+    //             {"title":"Python", "tutorialcount":2644},
+    //             {"title":"HTML", "tutorialcount":4132},
+    //             {"title":"CSS", "tutorialcount":5435},
+    //             {"title":"PHP", "tutorialcount":654},
+    //             {"title":"Go", "tutorialcount":483},
+    //             {"title":"Perl", "tutorialcount":122},
+    //             {"title":"Swift", "tutorialcount":432},
+    //             {"title":"C", "tutorialcount":765},
+    //             {"title":"C++", "tutorialcount":1201},
+    //             {"title":"Ruby", "tutorialcount":1212},
+    //             {"title":"Scala", "tutorialcount":2212},
+    //             {"title":"Lua", "tutorialcount":222},
+    //             {"title":"Haskell", "tutorialcount":23},
+    //             {"title":"Dart", "tutorialcount":25}
+    //         ]
+    //     )
     });
 
 //Test for getting topic detail  data

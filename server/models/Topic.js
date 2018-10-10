@@ -1,16 +1,16 @@
 const Sequelize = require("sequelize");
 const db = require("../sequelize-connection");
 
-const Item = db.define('Item', {
-    id: {
+const Topic = db.define('Topic', {
+    topicid: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    name: Sequelize.STRING,
-    description: Sequelize.STRING,
-    qty: Sequelize.INTEGER
+    title: Sequelize.STRING,
+    tutorialcount: Sequelize.INTEGER
 });
+
 
 // Applying Table to database
 // db.sync({force:true}).then((err) => {
@@ -21,4 +21,5 @@ const Item = db.define('Item', {
 //     }
 // });
 
-module.exports = Item;
+module.exports = Topic;
+

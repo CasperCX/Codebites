@@ -8,6 +8,7 @@ var db = new Sequelize('tutorials', 'root', 'password', {
     operatorsAliases: false
 });
 
+//Test database connection
 db.authenticate((err) => {
     if (err) {
        console.log('There is connection in ERROR');
