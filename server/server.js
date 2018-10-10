@@ -1,9 +1,40 @@
 const express = require("express");
-// const cors = require("cors");
+const db = require('./sequelize-connection'); 
+const Item = require('./models/Item');
+
 const server = express();
+
+//Including dependency
+return Item.create({
+    name:'Laptop',
+    description: 'Acer 2340TL',
+    qty: 23
+}).then(function (item) {
+    if (item) {
+       console.log("created entry")
+    } else {
+        console.log("failed inserting record")
+        // response.status(400).send('Error in insert new record');
+    }
+});
+
+
+
+
+
 
 // server.use(cors())
 server.get('/languages' , (req, res) => {
+
+    let result = db.query('SELECT * FROM `EXAMPLE_AUTOINCREMENT`', function (error, results, fields) {
+        if(error) {
+            console.log(error)
+        } else {
+            console.log(results)
+        }
+    });
+
+
     res.json( [
                 {"title":"Javascript", "tutorialcount":143},
                 {"title":"C#", "tutorialcount":412},
@@ -26,8 +57,7 @@ server.get('/languages' , (req, res) => {
                 {"title":"Dart", "tutorialcount":25}
             ]
         )
-    }
-);
+    });
 
 //Test for getting topic detail  data
 server.get('/javascript', (req, res) => {
