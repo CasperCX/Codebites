@@ -11,6 +11,7 @@ state = {
 }
 
   async componentDidMount() {
+    // error with loading fonts
     // this.loadFonts();
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000

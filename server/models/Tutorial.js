@@ -14,7 +14,7 @@ const Tutorial = db.define('Tutorial', {
 
 Tutorial.belongsTo(Domain);
 
-// Applying Table to database
+// Use this to deploy a table to the database
 db.sync({force:true}).then((err) => {
     if(err){
         console.log('An error occur while creating table');

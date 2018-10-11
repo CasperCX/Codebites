@@ -32,17 +32,12 @@ export default class Topics extends Component {
     )
   }
 
-  // menuOption() {
-  //   let term = this.menuValue;
-  //   console.log("term:", term)
-  // }
 
-  
   render() {
     return (
       <View style={{backgroundColor: '#FFFFFF'}}>
         <View elevation={5} style={styles.menu}>
-          <View onPress={() => this.menuOption }>
+          <View>
             <Text ref={component => this.setMenuOption = component} style={styles.menuItems}>Languages</Text>
           </View>
           <Text style={styles.menuItems}>Topics</Text>
