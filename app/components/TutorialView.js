@@ -14,7 +14,7 @@ state = {
     // this.loadFonts();
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
-      let res = await axios.get('http://8c854b92.ngrok.io/javascript/authentication'); //API endpoint for testing!
+      let res = await axios.get('http://7369eff1.ngrok.io/domainhere/tutidhere'); //API endpoint for testing!
       this.setState({ data: res.data });
       } catch (error) {
         console.error(error);
@@ -42,7 +42,7 @@ renderItem({item}) {
     return (
         <View style={styles.item}>
             {/* { this.state.fontLoaded ? ( */}
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => console.log(`pressed on tutid: ${item.tutid}`)}>
                     <Text style={styles.titleText}>{item.title}</Text>
                     <Text style={styles.titleInfo}>{item.tutid}</Text>
                 </TouchableOpacity>

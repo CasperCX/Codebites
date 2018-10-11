@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 const db = require("../sequelize-connection");
 
 const Topic = db.define('Topic', {
-    topicid: {
+    topicId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
