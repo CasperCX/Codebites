@@ -17,7 +17,7 @@ export default class Topics extends Component {
   async componentWillMount() {
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
-      let res = await axios.get('http://7369eff1.ngrok.io/topics');
+      let res = await axios.get('http://2d939f56.ngrok.io/topics');
       this.setState({ data: res.data });
       } catch (error) {
         console.error(error);

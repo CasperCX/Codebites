@@ -1,36 +1,37 @@
 const Topic = require('./models/Topic');
-// const Domain = require('./models/Domain');
+const Domain = require('./models/Domain');
 // const Tutorial = require('./models/Tutorial');
 
 module.exports = controller = {
+    //Get all topics
         getTopics: function(req, res)  {
-            return Topic.findAll().then((items) => {
-                if (items) {
-                    res.status(200).send(items);
+            return Topic.findAll().then((result) => {
+                if (!result) {
+                    res.status(400).send(`Error finding topic: ${result}`);
                 } else {
-                    res.status(400).send(`Error finding topic: ${items}`);
+                    res.status(200).send(result);
                     }
                 });
             },
 
+    //Get domains of single topic
         getTopic: function(req, res) {
-            console.log("req:", req.params.term)
             const term = req.params.term;
-            res.json({
-                    "topic":"Javascript",
-                    "domain": [
-                        {"type":"Authentication", "tutorialcount":143},
-                        {"type":"Frontend framework", "tutorialcount":412},
-                        {"type":"Backend framework", "tutorialcount":543},
-                        {"type":"React", "tutorialcount":145},
-                        {"type":"Angular", "tutorialcount":2644},
-                        {"type":"Vue", "tutorialcount":1201},
-                        {"type":"Node", "tutorialcount":2212},
-                        {"type":"MongoDB", "tutorialcount":122}
-                    ]
-                })
+            const topicId = req.query.topicId;
+     
+            return Domain.findAll({
+                where: {
+                    topicId: topicId
+                }}).then((result) => {
+                    if (!result) {
+                        res.status(400).send(`Error finding topic: ${result}`);
+                    } else {
+                        res.status(200).send({topic: term, domain: result});
+                    }
+                });
             },
 
+        //Get single tutorial by tutorial id
         getTutorial: function(req, res) {
             console.log(`req:domain: ${req.params.domain} - tutid: ${req.params.tutid}`);
             const domain = req.params.domain;

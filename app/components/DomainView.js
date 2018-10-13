@@ -11,11 +11,11 @@ export default class DomainView extends Component {
   }
 
   async componentDidMount() {
-   const term = this.props.topic.title;
+   const { term, topicId } = this.props.topic;
     this.loadFonts();
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
-      let res = await axios.get(`http://7369eff1.ngrok.io/topic/${term}`); //API endpoint for testing!
+      let res = await axios.get(`http://2d939f56.ngrok.io/topic/${term}?topicId=${topicId}`); //API endpoint for testing!
       this.setState({ tutorials: res.data.domain });
       } catch (error) {
         console.error(error);

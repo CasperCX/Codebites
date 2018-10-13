@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const db = require("../sequelize-connection");
+const db = require("../db-connection");
 const Domain = require("./Domain");
 
 const Tutorial = db.define('Tutorial', {
@@ -12,16 +12,16 @@ const Tutorial = db.define('Tutorial', {
     tutorialcount: Sequelize.INTEGER
 });
 
-Tutorial.belongsTo(Domain);
+// Tutorial.belongsTo(Domain, {as: 'tutorial'}); 
 
 // Use this to deploy a table to the database
-db.sync({force:true}).then((err) => {
-    if(err){
-        console.log('An error occur while creating table');
-    }else{
-        console.log('Item table created successfully');
-    }
-});
+// db.sync({force:true}).then((err) => {
+//     if(err){
+//         console.log('An error occur while creating table');
+//     }else{
+//         console.log('Item table created successfully');
+//     }
+// });
 
 module.exports = Tutorial;
 

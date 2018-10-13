@@ -1,10 +1,10 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 
-//Database setup
-const db = require('./sequelize-connection'); 
+//Database connection
+const db = require('./db-connection'); 
 
-
+//Route controllers
 const controller = require("./controller");
 
 //Server setup
@@ -12,9 +12,9 @@ const server = express();
     server.use(bodyParser.json({ limit: '100mb' }));
     server.use(bodyParser.urlencoded({ extended: true, limit: '100mb', parameterLimit: 1000000 }));
 
-
+//API Routing
 const routes = express.Router();
-server.use('/', routes);
+    server.use('/', routes);
 
     //Get all topics
     routes.get('/topics', controller.getTopics);
