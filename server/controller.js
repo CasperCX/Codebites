@@ -14,7 +14,7 @@ module.exports = controller = {
                 });
             },
 
-    //Get domains of single topic
+    //Get domains of a topic
         getTopic: function(req, res) {
             const term = req.params.term;
             const topicId = req.query.topicId;

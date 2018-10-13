@@ -11,11 +11,12 @@ export default class DomainView extends Component {
   }
 
   async componentDidMount() {
-   const { term, topicId } = this.props.topic;
+   const { title, topicId } = this.props.topic;
+   console.log("got:", this.props.topic)
     this.loadFonts();
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
-      let res = await axios.get(`http://2d939f56.ngrok.io/topic/${term}?topicId=${topicId}`); //API endpoint for testing!
+      let res = await axios.get(`http://2d939f56.ngrok.io/topic/${title}?topicId=${topicId}`); //API endpoint for testing!
       this.setState({ tutorials: res.data.domain });
       } catch (error) {
         console.error(error);
@@ -41,7 +42,7 @@ export default class DomainView extends Component {
 
 renderItem({item}) {
   return  (
-    <DomainTitle key={item.title} topic={item}>{item.title}subtopictitle</DomainTitle>
+    <DomainTitle key={item.title} topic={item}>{item.title}</DomainTitle>
   )
 }
 
@@ -49,7 +50,7 @@ render() {
   const { title } = this.props.topic;
   return (
     <View style={{marginHorizontal: 10}}>
-      <Text>4350 Tutorials found for Javascript</Text>
+      <Text>Tutorials found for: {this.props.topic.title}</Text>
       <FlatList
         data={this.state.tutorials}
         renderItem={this.renderItem}

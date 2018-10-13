@@ -5,17 +5,28 @@ import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native
 
 
 export default class TutorialView extends Component {
-state = {
-    fontLoaded: true,
-    data: []
-}
+  constructor() {
+    super();
+
+    this.state = {
+      fontLoaded: true,
+      data: []
+    }
+
+    this.renderItem = this.renderItem.bind(this)
+  }
+
+
+  // componentWillMount() {
+  //   this.setState({term: this.props.topic.term});
+  // )
 
   async componentDidMount() {
     // error with loading fonts
     // this.loadFonts();
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
-      let res = await axios.get('http://2d939f56.ngrok.io/domainhere/tutidhere'); //API endpoint for testing!
+      let res = await axios.get(`http://2d939f56.ngrok.io/domainhere/tutidhere`); //API endpoint for testing!
       this.setState({ data: res.data });
       } catch (error) {
         console.error(error);
@@ -43,7 +54,7 @@ renderItem({item}) {
     return (
         <View style={styles.item}>
             {/* { this.state.fontLoaded ? ( */}
-                <TouchableOpacity onPress={() => console.log(`pressed on tutid: ${item.tutid}`)}>
+                <TouchableOpacity onPress={() => console.log(`pressed on tutid: ${item.tutid} for ${this.props.topic.title}`)}>
                     <Text style={styles.titleText}>{item.title}</Text>
                     <Text style={styles.titleInfo}>{item.tutid}</Text>
                 </TouchableOpacity>
@@ -56,7 +67,7 @@ render() {
   const { title } = this.props.topic;
   return (
     <View style={{marginHorizontal: 10}}>
-      <Text>Tutorials for {this.state.data.topic} {title}</Text>
+      <Text>{this.state.data.topic} {title}</Text>
       <FlatList
         data={this.state.data.tutorials}
         renderItem={this.renderItem}

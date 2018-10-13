@@ -22,9 +22,9 @@ const routes = express.Router();
     //Get domains of topic
     routes.get('/topic/:term', controller.getTopic);
 
-    //TODO Get tutorials of domain
+    //TODO Get all tutorials of domain
 
-    //Get tutorial of domain
+    //Get single tutorial of domain
     routes.get('/:domain/:tutid', controller.getTutorial);
 
 
