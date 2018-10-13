@@ -57,9 +57,9 @@ renderItem({item}) {
     return (
         <View style={styles.item}>
             {/* { this.state.fontLoaded ? ( */}
-                <TouchableOpacity onPress={() => console.log(`pressed on tutid: ${item.tutid} for ${this.props.topic.domain}`)}>
+                <TouchableOpacity onPress={() => console.log(`pressed on tutid: ${item.tutorialId} for ${this.props.topic.domain}`)}>
                     <Text style={styles.titleText}>{item.title}</Text>
-                    <Text style={styles.titleInfo}>{item.tutid}</Text>
+                    <Text style={styles.titleInfo}>{item.tutorialId}</Text>
                 </TouchableOpacity>
             {/* ) : null } */}
         </View>

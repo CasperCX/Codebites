@@ -46,7 +46,7 @@ module.exports = controller = {
                     if (!result) {
                         res.status(400).send(`Error finding topic: ${result}`);
                     } else {
-                        res.status(200).send(result);
+                        res.status(200).send({domain: domain, tutorials: result});
                     }
                 });
             },
