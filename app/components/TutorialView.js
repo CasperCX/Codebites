@@ -25,10 +25,11 @@ export default class TutorialView extends Component {
     //Load fonts
     this.loadFonts();
 
-    const { topicId, domain } = this.props.topic;
+    const { domainId, domain } = this.props.topic;
+
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
-      let res = await axios.get(`http://2d939f56.ngrok.io/${topicId}/${domain}`); //API endpoint for testing!
+      let res = await axios.get(`http://2d939f56.ngrok.io/${domainId}/${domain}`); //API endpoint for testing!
       this.setState({ data: res.data });
       } catch (error) {
         console.error(error);
