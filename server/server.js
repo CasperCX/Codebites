@@ -24,8 +24,8 @@ const routes = express.Router();
 
     //TODO Get all tutorials of domain
 
-    //Get single tutorial of domain
-    routes.get('/:domain/:tutid', controller.getTutorial);
+    //Get tutorials of domain
+    routes.get('/:topicId/:domain', controller.getTutorials);
 
 
 

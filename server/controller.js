@@ -1,6 +1,6 @@
 const Topic = require('./models/Topic');
 const Domain = require('./models/Domain');
-// const Tutorial = require('./models/Tutorial');
+const Tutorial = require('./models/Tutorial');
 
 module.exports = controller = {
     //Get all topics
@@ -31,32 +31,34 @@ module.exports = controller = {
                 });
             },
 
-        //Get single tutorial by tutorial id
-        getTutorial: function(req, res) {
-            console.log(`req:domain: ${req.params.domain} - tutid: ${req.params.tutid}`);
+        //Get tutorials for domain
+        getTutorials: function(req, res) {
+            console.log(`req:domain: ${req.params.domain} reg:topicId: ${req.params.topicId}`);
+            const topicId = req.params.topicId;
             const domain = req.params.domain;
-            const tutid = req.params.tutid;
+    
             res.json({
                     "topic":"Javascript",
+                    "domain": "React",
                     "tutorials": [
-                        {"tutid": 1, "title":"Javascript The easy way", "type":"Authentication"},
-                        {"tutid": 2, "title":"Javascript is ez", "type":"Web framework"},
-                        {"tutid": 3, "title":"Javascript for noobs", "type":"Frontend framework"},
-                        {"tutid": 4, "title":"What's new in ES2018", "type":"Authentication"},
-                        {"tutid": 5, "title":"Javascript The easy way", "type":"Authentication"},
-                        {"tutid": 6, "title":"Javascript is ez", "type":"Web framework"},
-                        {"tutid": 7, "title":"Javascript for noobs", "type":"Frontend framework"},
-                        {"tutid": 8, "title":"What's new in ES2018", "type":"Authentication"},
-                        {"tutid": 9, "title":"Javascript The easy way", "type":"Authentication"},
-                        {"tutid": 10, "title":"Javascript is ez", "type":"Web framework"},
-                        {"tutid": 11, "title":"Javascript for noobs", "type":"Frontend framework"},
-                        {"tutid": 12, "title":"What's new in ES2018", "type":"Authentication"},
-                        {"tutid": 13, "title":"Javascript for noobs", "type":"Frontend framework"},
-                        {"tutid": 14, "title":"What's new in ES2018", "type":"Authentication"},
-                        {"tutid": 15, "title":"Javascript The easy way", "type":"Authentication"},
-                        {"tutid": 16, "title":"Javascript is ez", "type":"Web framework"},
-                        {"tutid": 17, "title":"Javascript for noobs", "type":"Frontend framework"},
-                        {"tutid": 18, "title":"What's new in ES2018", "type":"Authentication"}
+                        {"tutid": 1, "topic": "Javascript", "domain": "React", "title":"Javascript The easy way", "type":"Authentication"},
+                        {"tutid": 2, "topic": "Javascript", "domain": "React", "title":"Javascript is ez", "type":"Web framework"},
+                        {"tutid": 3, "topic": "Javascript", "domain": "React", "title":"Javascript for noobs", "type":"Frontend framework"},
+                        {"tutid": 4, "topic": "Javascript", "domain": "React", "title":"What's new in ES2018", "type":"Authentication"},
+                        {"tutid": 5, "topic": "Javascript", "domain": "React", "title":"Javascript The easy way", "type":"Authentication"},
+                        {"tutid": 6, "topic": "Javascript", "domain": "React", "title":"Javascript is ez", "type":"Web framework"},
+                        {"tutid": 7, "topic": "Javascript", "domain": "React", "title":"Javascript for noobs", "type":"Frontend framework"},
+                        {"tutid": 8, "topic": "Javascript", "domain": "React", "title":"What's new in ES2018", "type":"Authentication"},
+                        {"tutid": 9, "topic": "Javascript", "domain": "React", "title":"Javascript The easy way", "type":"Authentication"},
+                        {"tutid": 10, "topic": "Javascript", "domain": "React", "title":"Javascript is ez", "type":"Web framework"},
+                        {"tutid": 11, "topic": "Javascript", "domain": "React", "title":"Javascript for noobs", "type":"Frontend framework"},
+                        {"tutid": 12, "topic": "Javascript", "domain": "React", "title":"What's new in ES2018", "type":"Authentication"},
+                        {"tutid": 13, "topic": "Javascript", "domain": "React", "title":"Javascript for noobs", "type":"Frontend framework"},
+                        {"tutid": 14, "topic": "Javascript", "domain": "React", "title":"What's new in ES2018", "type":"Authentication"},
+                        {"tutid": 15, "topic": "Javascript", "domain": "React", "title":"Javascript The easy way", "type":"Authentication"},
+                        {"tutid": 16, "topic": "Javascript", "domain": "React", "title":"Javascript is ez", "type":"Web framework"},
+                        {"tutid": 17, "topic": "Javascript", "domain": "React", "title":"Javascript for noobs", "type":"Frontend framework"},
+                        {"tutid": 18, "topic": "Javascript", "domain": "React", "title":"What's new in ES2018", "type":"Authentication"}
                     ]
                 })
             }

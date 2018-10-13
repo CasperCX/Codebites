@@ -22,11 +22,13 @@ export default class TutorialView extends Component {
   // )
 
   async componentDidMount() {
-    // error with loading fonts
-    // this.loadFonts();
+    //Load fonts
+    this.loadFonts();
+
+    const { topicId, domain } = this.props.topic;
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
-      let res = await axios.get(`http://2d939f56.ngrok.io/domainhere/tutidhere`); //API endpoint for testing!
+      let res = await axios.get(`http://2d939f56.ngrok.io/${topicId}/${domain}`); //API endpoint for testing!
       this.setState({ data: res.data });
       } catch (error) {
         console.error(error);
@@ -54,7 +56,7 @@ renderItem({item}) {
     return (
         <View style={styles.item}>
             {/* { this.state.fontLoaded ? ( */}
-                <TouchableOpacity onPress={() => console.log(`pressed on tutid: ${item.tutid} for ${this.props.topic.title}`)}>
+                <TouchableOpacity onPress={() => console.log(`pressed on tutid: ${item.tutid} for ${this.props.topic.domain}`)}>
                     <Text style={styles.titleText}>{item.title}</Text>
                     <Text style={styles.titleInfo}>{item.tutid}</Text>
                 </TouchableOpacity>

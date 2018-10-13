@@ -9,13 +9,15 @@ const Domain = db.define('Domain', {
         primaryKey: true,
         autoIncrement: true
     },
-    title: Sequelize.STRING,
+    domain: Sequelize.STRING,
     type: Sequelize.STRING,
     tutorialcount: Sequelize.INTEGER
 });
 
 
-Domain.belongsTo(Topic, {foreignKey: 'topicId'});
+Domain.hasMany(Tutorial,{foreignKey: 'domainId'})
+
+// Domain.belongsTo(Topic, {foreignKey: 'topicId'});
 
 
 // // Use this to deploy a table to the database

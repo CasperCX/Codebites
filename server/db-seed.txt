@@ -1,10 +1,11 @@
 ALTER TABLE TOPICS CHANGE COLUMN createdAt createdAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP;
-
 ALTER TABLE TOPICS CHANGE COLUMN updatedAt updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP;
 
 ALTER TABLE DOMAINS CHANGE COLUMN createdAt createdAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP;
-
 ALTER TABLE DOMAINS CHANGE COLUMN updatedAt updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE TUTORIALS CHANGE COLUMN createdAt createdAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE TUTORIALS CHANGE COLUMN updatedAt updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP;
 
 INSERT INTO topics ( title, tutorialcount)
    VALUES
@@ -64,36 +65,54 @@ INSERT INTO topics ( title, tutorialcount)
 
 
 
-INSERT INTO domains( title, type, tutorialcount, topicId) VALUES
+INSERT INTO domains( domain, type, tutorialcount, topicId) VALUES
  ("Authentication", "authentication", 423, 1);
 
 
-INSERT INTO domains( title, type, tutorialcount, topicId) VALUES
+INSERT INTO domains( domain, type, tutorialcount, topicId) VALUES
  ("React", "frontend web development", 1423, 1);
 
 
-INSERT INTO domains( title, type, tutorialcount, topicId) VALUES
+INSERT INTO domains( domain, type, tutorialcount, topicId) VALUES
  ("Vue", "frontend web development", 433, 1);
 
 
-INSERT INTO domains( title, type, tutorialcount, topicId) VALUES
+INSERT INTO domains( domain, type, tutorialcount, topicId) VALUES
  ("Angular", "frontend web development", 523, 1);
 
 
-INSERT INTO domains( title, type, tutorialcount, topicId) VALUES
+INSERT INTO domains( domain, type, tutorialcount, topicId) VALUES
  ("Spring", "backend web development", 123, 2);
 
 
-INSERT INTO domains( title, type, tutorialcount, topicId) VALUES
+INSERT INTO domains( domain, type, tutorialcount, topicId) VALUES
  ("Vertx", "backend web development", 100, 2);
 
 
-INSERT INTO domains( title, type, tutorialcount, topicId) VALUES
+INSERT INTO domains( domain, type, tutorialcount, topicId) VALUES
  ("Hadoop", "big data", 120, 2);
 
 
-INSERT INTO domains( title, type, tutorialcount, topicId) VALUES
+INSERT INTO domains( domain, type, tutorialcount, topicId) VALUES
  ("Spark", "backend web development", 11, 2);
+
+
+
+ 
+INSERT INTO tutorials( topic, domain, title, domainId) VALUES
+ ("Javascript", "React", "React The easy way", 2);
+
+ INSERT INTO tutorials( topic, domain, title, domainId) VALUES
+ ("Javascript", "React", "EZ React", 2);
+
+ INSERT INTO tutorials( topic, domain, title, domainId) VALUES
+ ("Javascript", "Angular", "Angular bites", 4);
+
+
+
+
+
+
 
 
 

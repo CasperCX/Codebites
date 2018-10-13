@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const db = require("../db-connection");
+const Domain = require("./Domain");
 
 const Topic = db.define('Topic', {
     topicId: {
@@ -11,11 +12,7 @@ const Topic = db.define('Topic', {
     tutorialcount: Sequelize.INTEGER
 });
 
-// Topic.hasMany(Domain, {
-//     as: 'domains',
-//     foreignKey: 'topicId'
-// });
-
+Topic.hasMany(Domain, {foreignKey: 'topicId'})
 
 // Use this to deploy a table to the database
 // db.sync({force:true}).then((err) => {
