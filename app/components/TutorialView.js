@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
 import { Font } from 'expo';
 import axios from 'axios';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, ActivityIndicator, StyleSheet } from 'react-native';
 
 
 export default class TutorialView extends Component {
@@ -10,6 +10,7 @@ export default class TutorialView extends Component {
     super();
 
     this.state = {
+      loading: true,
       fontLoaded: true,
       data: []
     }
@@ -31,7 +32,7 @@ export default class TutorialView extends Component {
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
       let res = await axios.get(`http://3e624120.ngrok.io/${domainId}/${domain}`); //API endpoint for testing!
-      this.setState({ data: res.data });
+      this.setState({ data: res.data, loading: false });
       } catch (error) {
         console.error(error);
     }
@@ -69,17 +70,24 @@ renderItem({item}) {
 
 render() {
   const { title } = this.props.topic;
-  return (
-    <View style={{marginHorizontal: 10}}>
-      <Text>{this.state.data.topic} {title}</Text>
-      <FlatList
-        data={this.state.data.tutorials}
-        renderItem={this.renderItem}
-      />
-    </View>
-    )
-  }
-}
+  if (this.state.loading) {
+    return (
+      <View style={styles.spinner}>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+      )} else {
+        return (
+          <View style={{marginHorizontal: 10}}>
+            <Text>{this.state.data.topic} {title}</Text>
+            <FlatList
+              data={this.state.data.tutorials}
+              renderItem={this.renderItem}
+            />
+          </View>
+        )
+      }
+    }
+};
 
 
 const styles = StyleSheet.create({
@@ -98,6 +106,13 @@ const styles = StyleSheet.create({
         fontFamily: 'montserrat-regular',
         fontSize: 16,
         color: '#9e9e9e'
+    },
+    spinner: {
+      flex: 1,
+      justifyContent: 'center',
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      padding: 10
     }
   });
   

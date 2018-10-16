@@ -50,9 +50,9 @@ export default class TopicTitle extends Component {
             borderBottomWidth: 1
         },
         titleText: {
-            fontFamily: 'montserrat-regular',
+            fontFamily: 'Roboto',
             fontSize: 27,
-            color: '#ff5e52'
+            color: '#2395E8'
         },
         titleInfo: {
             fontFamily: 'montserrat-regular',
