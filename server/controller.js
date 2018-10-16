@@ -19,9 +19,9 @@ module.exports = controller = {
 
     //Get all domains of topic
         getTopic: function(req, res) {
-            const term = req.params.term;
+            const topic = req.params.topic;
             const topicId = req.query.topicId;
-     
+            
             return Domain.findAll({
                 where: {
                     topicId: topicId
@@ -29,7 +29,7 @@ module.exports = controller = {
                     if (!result) {
                         res.status(400).send(`Error finding topic: ${result}`);
                     } else {
-                        res.status(200).send({topic: term, domain: result});
+                        res.status(200).send({topic: topic, domain: result});
                     }
                 });
             },

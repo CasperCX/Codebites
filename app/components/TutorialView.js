@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Actions } from 'react-native-router-flux';
 import { Font } from 'expo';
 import axios from 'axios';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
@@ -29,7 +30,7 @@ export default class TutorialView extends Component {
 
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
-      let res = await axios.get(`http://2d939f56.ngrok.io/${domainId}/${domain}`); //API endpoint for testing!
+      let res = await axios.get(`http://3e624120.ngrok.io/${domainId}/${domain}`); //API endpoint for testing!
       this.setState({ data: res.data });
       } catch (error) {
         console.error(error);
@@ -57,7 +58,7 @@ renderItem({item}) {
     return (
         <View style={styles.item}>
             {/* { this.state.fontLoaded ? ( */}
-                <TouchableOpacity onPress={() => console.log(`pressed on tutid: ${item.tutorialId} for ${this.props.topic.domain}`)}>
+                <TouchableOpacity onPress={() => Actions.tutorialdetail({ tutorial: this.state.data.tutorials.find(obj => obj.tutorialId == item.tutorialId) }) }>
                     <Text style={styles.titleText}>{item.title}</Text>
                     <Text style={styles.titleInfo}>{item.tutorialId}</Text>
                 </TouchableOpacity>

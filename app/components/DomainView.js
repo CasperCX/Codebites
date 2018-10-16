@@ -16,7 +16,7 @@ export default class DomainView extends Component {
     this.loadFonts();
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
-      let res = await axios.get(`http://2d939f56.ngrok.io/topic/${title}?topicId=${topicId}`); //API endpoint for testing!
+      let res = await axios.get(`http://3e624120.ngrok.io/topic/${title}?topicId=${topicId}`); //API endpoint for testing!
       this.setState({ tutorials: res.data.domain });
       } catch (error) {
         console.error(error);

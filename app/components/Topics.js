@@ -6,18 +6,14 @@ import { ScrollView, Text, View, FlatList, StyleSheet } from 'react-native';
 import TopicTitle from './TopicTitle';
 
 export default class Topics extends Component {
-  menuOption = () => {
-    console.log(this.setMenuOption.value)
-  }
-  
   state = {
     data: []
-  }
-
+  };
+  
   async componentWillMount() {
     try {
       //Generate new ngrok link and replace proxy in package.json every restart using: ngrok http 5000
-      let res = await axios.get('http://2d939f56.ngrok.io/topics');
+      let res = await axios.get('http://3e624120.ngrok.io/topics');
       this.setState({ data: res.data });
       } catch (error) {
         console.error(error);

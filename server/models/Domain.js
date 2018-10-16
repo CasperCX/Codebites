@@ -16,7 +16,6 @@ const Domain = db.define('Domain', {
 
 
 Domain.hasMany(Tutorial,{foreignKey: 'domainId'})
-
 // Domain.belongsTo(Topic, {foreignKey: 'topicId'});
 
 

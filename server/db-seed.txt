@@ -99,14 +99,17 @@ INSERT INTO domains( domain, type, tutorialcount, topicId) VALUES
 
 
  
-INSERT INTO tutorials( topic, domain, title, domainId) VALUES
- ("Javascript", "React", "React The easy way", 2);
+INSERT INTO tutorials( topic, domain, title, body, domainId) VALUES
+ ("Javascript", "React", "React The easy way", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+ interdum purus", 2);
 
- INSERT INTO tutorials( topic, domain, title, domainId) VALUES
- ("Javascript", "React", "EZ React", 2);
+ INSERT INTO tutorials( topic, domain, title, body, domainId) VALUES
+ ("Javascript", "React", "EZ React", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique 
+ purus feugiat porta luctus. Nam turpis orci, luctus vel est rutrum, vehicula tincidunt est. Donec tempor", 2);
 
- INSERT INTO tutorials( topic, domain, title, domainId) VALUES
- ("Javascript", "Angular", "Angular bites", 4);
+ INSERT INTO tutorials( topic, domain, title, body, domainId) VALUES
+ ("Javascript", "Angular", "Angular bites", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce 
+ eu tincidunt enim. Sed quis nulla sed orci placerat mattis. In.",4);
 
 
 

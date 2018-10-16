@@ -20,7 +20,7 @@ const routes = express.Router();
     routes.get('/topics', controller.getTopics);
 
     //Get domains of topic
-    routes.get('/topic/:term', controller.getTopic);
+    routes.get('/topic/:topic', controller.getTopic);
 
     //TODO Get all tutorials of domain
 
@@ -28,9 +28,9 @@ const routes = express.Router();
     routes.get('/:domainId/:domain', controller.getTutorials);
 
 
-
+                                                                                       
 
 
 server.listen(5000, () => {
     console.log("server running on port 5000");
-});
+}); 
