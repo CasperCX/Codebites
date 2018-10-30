@@ -1,2 +1,2 @@
 # Codebites
-A React Native app learning exchange
+A React Native app learning exchange with a MySQL database
